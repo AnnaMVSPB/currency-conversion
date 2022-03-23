@@ -11,7 +11,7 @@ function App() {
   const dispatch=useDispatch()
   useEffect(()=>{
     dispatch({type:converterAT.EXCHANGE_RATES_FETCH})
-  },[])
+  },[dispatch])
 
   return (
     <div className="App">

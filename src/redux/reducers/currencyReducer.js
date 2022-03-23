@@ -1,23 +1,24 @@
 import { converterAT } from '../actionType/converterAT';
 
-const initialState = {currencies:['AMD','GBP','USD','TRY','CNY','AUD'], exchangeRates: {} };
+const initialState = { exchangeRates: [] };
 
 function currencyReducer(state = initialState, action) {
 
   switch (action.type) {
     case converterAT.EXCHANGE_RATES_INIT:
-      console.log(action.payload.Valute)
-      return { ...state, exchangeRates: action.payload.Valute};
+      let arr = []
+      for (let key in action.payload.Valute) {
+        arr.push(action.payload.Valute[key])
+      }
+      return { ...state, exchangeRates: arr };
 
     case converterAT.CURRENCY_CONVERSION:
-      const copiExchangeRates = { ...state.exchangeRates}
-      let courseRatio = 0
-      for (let key in copiExchangeRates) {
-        if (key === action.payload.currency) {
-          courseRatio = copiExchangeRates[key].Value * Number(action.payload.sum)
+      const copiExchangeRates = [...state.exchangeRates]
+      let courseRatio = copiExchangeRates.map(currencie => {
+        if (currencie.CharCode === action.payload.currency) {
+          return Number(action.payload.sum) * currencie.Value
         }
-      }
-      
+      })
       return { ...state, courseRatio }
 
     default:
