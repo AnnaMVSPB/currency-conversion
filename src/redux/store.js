@@ -1,7 +1,17 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { currencyReducer } from './reducers/currencyReducer';
+import currencyReducer from "./reducers/currencyReducer";
+import { myWatcher } from './saga';
+import createSagaMiddleware from 'redux-saga';
 
+const sagaMiddleware = createSagaMiddleware();
 
+const store = createStore(
+  currencyReducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware)),
+);
 
-export const store = createStore(currencyReducer, composeWithDevTools());
+sagaMiddleware.run(myWatcher);
+
+export default store;
+
