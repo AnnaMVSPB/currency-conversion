@@ -7,7 +7,6 @@ export const converterCurrencyAC = () => {
   };
 };
 
-
 export const convertingAC = (payload) => {
   return {
     type: converterAT.CURRENCY_CONVERSION,
