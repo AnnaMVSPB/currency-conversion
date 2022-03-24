@@ -5,7 +5,7 @@ import Converter from '../Converter/Converter';
 import ExchangeRates from '../ExchangeRates/ExchangeRates';
 import { converterAT } from '../../redux/actionType/converterAT';
 import Nav from '../Nav/Nav';
-import './App.css';
+import style from './App.module.css';
 
 function App() {
   const dispatch=useDispatch()
@@ -14,7 +14,8 @@ function App() {
   },[dispatch])
 
   return (
-    <div className="App">
+    <div className={style.App}>
+      <div className={style.container}>
       <BrowserRouter>
         <Nav/>
         <Routes>
@@ -22,6 +23,7 @@ function App() {
           <Route path='/exchangeRates' element={<ExchangeRates/>} />
         </Routes>
       </BrowserRouter>
+      </div>
     </div>
   );
 }

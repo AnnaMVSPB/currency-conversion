@@ -7,6 +7,7 @@ function currencyReducer(state = initialState, action) {
   switch (action.type) {
     case converterAT.EXCHANGE_RATES_INIT:
       let arr = []
+      console.log(action.payload)
       for (let key in action.payload.Valute) {
         arr.push(action.payload.Valute[key])
       }
@@ -14,9 +15,10 @@ function currencyReducer(state = initialState, action) {
 
     case converterAT.CURRENCY_CONVERSION:
       const copiExchangeRates = [...state.exchangeRates]
-      let courseRatio = copiExchangeRates.map(currencie => {
+      let courseRatio = 0
+       copiExchangeRates.map(currencie => {
         if (currencie.CharCode === action.payload.currency) {
-          return Number(action.payload.sum) * currencie.Value
+          return courseRatio = Number(action.payload.sum) * currencie.Value
         }
       })
       return { ...state, courseRatio }

@@ -1,0 +1,10 @@
+.flex{
+  display:flex;
+  justify-content: space-between;
+}
+.p{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border: 1px solid gray;
+  width: 600px;
+  margin: 0;
+}

@@ -1,12 +1,11 @@
 import React from 'react';
+import styles from './card.module.css'
 
 function Card({currencie}) {
   return (
-    <div>
-   <p>{currencie.CharCode}</p>
-   <p>{currencie.Name}</p>
-   <p>{currencie.Nominal}</p>
-   <p>{currencie.Value}</p>
+    <div className={styles.flex}>
+   <p className={styles.p}>{currencie.CharCode} {currencie.Name}</p>
+   <p className={styles.p}>{currencie.Value}</p>
     </div>
   );
 }

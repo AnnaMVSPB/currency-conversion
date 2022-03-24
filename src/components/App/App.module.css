@@ -1,0 +1,11 @@
+.App {
+  height: 100vh;
+display:flex;
+justify-content: center
+}
+.container{
+min-width:500px;
+height:800px;
+border:  thick double;
+box-shadow: 10px 5px 5px grey;
+}
