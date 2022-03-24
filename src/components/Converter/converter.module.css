@@ -1,0 +1,12 @@
+.block{
+ display:flex;
+ justify-content: center;
+ margin-top: 20px;
+ 
+}
+p{
+  margin:5px;
+  font-size: 40px;
+}
+select{font-size: 25px;}
+input{font-size: 25px;}
